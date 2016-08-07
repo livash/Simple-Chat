@@ -1,0 +1,14 @@
+{
+  "name": "chat_socket_io",
+  "version": "0.0.1",
+  "description": "Example of using Socket.IO for building chat apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Olena D.",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
