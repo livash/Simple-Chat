@@ -1,13 +1,28 @@
-var app = require('express')();
+var express = require('express');
+var app = express();
+var path = require('path');
 var http = require('http').Server(app);
-var socket = require('socket.io')(http);
+var io = require('socket.io')(http);
 
-app.get('/chat', function(req, res) {
+var rootPath = path.normalize(__dirname + '/');
+
+// ask express to serve files as they are without any pre-processing
+app.use(express.static(rootPath));
+
+app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
-socket.on('connection', function(socket) {
+io.sockets.on('connection', function(socket) {
   console.log('a user connected');
+
+  socket.on('chat message', function(msg) {
+    console.log(msg);
+  });
+
+  socket.on('disconnect', function() {
+    console.log('user disconnected');
+  });
 })
 
 http.listen(3000, function() {
