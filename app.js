@@ -1,7 +1,5 @@
-
-var socket;
 $(document).ready(function() {
-  socket = io.connect();
+  var socket = io.connect();
 
   $('form').submit(function(event) {
     socket.emit( 'chat message', $('#m').val() );
@@ -9,7 +7,21 @@ $(document).ready(function() {
     return false;
   });
 
+  var addMessage = function(msg, klass) {
+    var el = $('<li>').text(msg);
+    if (klass) el.addClass(klass);
+    $('#messages').append(el);
+  }
+
   socket.on('server chat message', function(msg) {
-    $('#messages').append($('<li>').text(msg));
+    addMessage(msg);
+  });
+
+  socket.on('serverMsg:newUser', function(msg) {
+    addMessage(msg, 'server-msg');
+  });
+
+  socket.on('serverMsg:disconnectUser', function(msg) {
+    addMessage(msg, 'server-msg');
   });
 });

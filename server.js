@@ -14,14 +14,15 @@ app.get('/', function(req, res) {
 });
 
 io.sockets.on('connection', function(socket) {
-  console.log('a user connected');
+  // notify all users that a new user has connected
+  io.emit('serverMsg:newUser', 'New User has joined this chat');
 
   socket.on('chat message', function(msg) {
     io.emit('server chat message', msg);
   });
 
   socket.on('disconnect', function() {
-    console.log('user disconnected');
+    io.emit('serverMsg:disconnectUser', 'User has disconnected');
   });
 })
 

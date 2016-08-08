@@ -46,3 +46,8 @@ form button {
 #messages li:nth-child(odd) {
   background: #eee;
 }
+
+.server-msg {
+  color: #00cc66;
+  font-size: 16px;
+}
