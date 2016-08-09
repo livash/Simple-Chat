@@ -4,8 +4,6 @@
 }
 
 .display {
-  width: 80%;
-  line-height: rem;
   background-color: yellow;
   text-align: right;
   padding: 1rem;
@@ -15,3 +13,25 @@
 .buttons {
   margin: 1rem;
 }
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+}
+
+.numbers {
+  display: block;
+  width: 65%;
+  float: left;
+}
+
+.operators {
+  display: block;
+  width: 30%;
+  float: right;
+}
+

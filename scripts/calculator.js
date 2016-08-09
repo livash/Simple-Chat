@@ -52,7 +52,7 @@ class Operators extends React.Component {
 class Buttons extends React.Component {
   render() {
     return (
-      <div className="buttons">
+      <div className="buttons clearfix">
         <Numbers />
         <Operators />
       </div>
