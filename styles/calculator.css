@@ -1,6 +1,9 @@
 #main-calculator {
   background-color: green;
   padding: 1rem;
+  width: 300px;
+  margin: 0 auto;
+  font-size: 20px;
 }
 
 .display {
@@ -12,6 +15,12 @@
 
 .buttons {
   margin: 1rem;
+}
+
+button {
+  padding: 10px;
+  margin: 0.5rem;
+  font-size: 20px;
 }
 
 .clearfix:after {
