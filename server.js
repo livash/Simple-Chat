@@ -13,6 +13,10 @@ app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
+app.get('/calculator', function(req, res) {
+  res.sendFile(__dirname + '/calculator.html');
+});
+
 io.sockets.on('connection', function(socket) {
   // notify all users that a new user has connected
   io.emit('serverMsg:newUser', 'New User has joined this chat');
@@ -24,7 +28,7 @@ io.sockets.on('connection', function(socket) {
   socket.on('disconnect', function() {
     io.emit('serverMsg:disconnectUser', 'User has disconnected');
   });
-})
+});
 
 http.listen(3000, function() {
   console.log("Listening on port 3000");
