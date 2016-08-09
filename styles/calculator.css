@@ -1,0 +1,17 @@
+#main-calculator {
+  background-color: green;
+  padding: 1rem;
+}
+
+.display {
+  width: 80%;
+  line-height: rem;
+  background-color: yellow;
+  text-align: right;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.buttons {
+  margin: 1rem;
+}

@@ -1,3 +1,11 @@
+class Display extends React.Component {
+  render() {
+    return (
+      <div className="display">0</div>
+    );
+  }
+}
+
 class Numbers extends React.Component {
   render() {
     let numbers = [1,2,3,4,5,6,7,8,9,0];
@@ -41,12 +49,23 @@ class Operators extends React.Component {
   }
 };
 
+class Buttons extends React.Component {
+  render() {
+    return (
+      <div className="buttons">
+        <Numbers />
+        <Operators />
+      </div>
+    );
+  }
+}
+
 class Main extends React.Component {
   render() {
     return (
       <div>
-        <Numbers />
-        <Operators />
+        <Display />
+        <Buttons />
       </div>
     );
   }
