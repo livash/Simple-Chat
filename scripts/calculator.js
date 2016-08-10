@@ -8,10 +8,10 @@ class Display extends React.Component {
 
 class Numbers extends React.Component {
   render() {
-    let numbers = [1,2,3,4,5,6,7,8,9,0];
+    let numbers = [0,1,2,3,4,5,6,7,8,9];
     return (
       <div className="numbers">
-        {numbers.map( number => (<button key={number}>{number}</button>))}
+        {numbers.map( number => (<button key={number} onClick={this.updateExpression.bind(null, number)}>{number}</button>))}
       </div>
     );
   }
@@ -36,6 +36,14 @@ class Operators extends React.Component {
         name: "divide",
         value: "/"
       },
+      {
+        name: "evaluate",
+        value: "="
+      },
+      {
+        name: "cancel",
+        value: "c"
+      }
     ]
     return (
       <div className="operators">
