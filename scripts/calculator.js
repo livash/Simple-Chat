@@ -1,7 +1,10 @@
 class Display extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
-      <div className="display">0</div>
+      <div className="display">{this.props.displayValue}</div>
     );
   }
 }
@@ -11,7 +14,7 @@ class Numbers extends React.Component {
     let numbers = [0,1,2,3,4,5,6,7,8,9];
     return (
       <div className="numbers">
-        {numbers.map( number => (<button key={number} onClick={this.updateExpression.bind(null, number)}>{number}</button>))}
+        {numbers.map( number => (<button key={number} >{number}</button>))}
       </div>
     );
   }
@@ -68,11 +71,18 @@ class Buttons extends React.Component {
   }
 }
 
-class Main extends React.Component {
+class Calculator extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      expression: [], // array of numbers and operators as they are entered
+      displayValue: this.props.displayValue
+    }
+  }
   render() {
     return (
       <div>
-        <Display />
+        <Display displayValue={this.state.displayValue} />
         <Buttons />
       </div>
     );
@@ -80,6 +90,6 @@ class Main extends React.Component {
 };
 
 ReactDOM.render(
-  <Main />,
+  <Calculator displayValue={'0'}/>,
   document.getElementById('main-calculator')
 );
