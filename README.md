@@ -12,6 +12,12 @@ This application runs using node server. To get started on a linux box, first ru
 
 Application can be viewed on `localhost:3000`
 
+
+## Routes
+`/` - chat app
+`/calculator` - React.js calculator app
+
+
 ### Running the application
 
 Navigate your browser to `http://localhost:3000/` to see the app running in your browser.
