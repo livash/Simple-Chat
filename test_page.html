@@ -4,8 +4,15 @@
     <meta charset="utf-8">
     <title>Test Page</title>
     <link rel="stylesheet" href="styles/calculator.css" />
+    <script src="/scripts/test.js"></script>
   </head>
   <body onload="window.alert('Welcome Olena :) !')">
-    <div id="main-calculator"></div>
+    <script>
+      function changeColor2(newColor) {
+        var elem = document.getElementById("olenaHeading");
+        elem.style.color = newColor;
+      }
+    </script>
+    <button onClick="changeColor2('blue')">Button, change color to blue</button >
   </body>
 </html>
