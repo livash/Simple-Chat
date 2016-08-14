@@ -1,5 +1,5 @@
 const OPERATORS = ['+', '-', '*', '/', '=', 'c'];
-const NUMBERS = [0,1,2,3,4,5,6,7,8,9];
+const NUMBERS = [7,8,9,4,5,6,1,2,3,0,'.'];
 
 class Calculator {
   constructor() {
@@ -96,6 +96,8 @@ class Calculator {
   }
 
   operatorClick(event) {
+    // TODO: check whether this.expressions already has an operator in the last two positions
+    // for example "+-", then if the new operator is not compatible, override this operator with the new value
     let value = event.target.getAttribute('value');
     switch (value) {
       case 'c':
