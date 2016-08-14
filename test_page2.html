@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div>My people:</div>
+    <ul id="olena">
+        <li>Olena</li>
+        <li>Jon</li>
+    </ul>
+
+    <!-- a comment node -->
+
+    <script>
+      function go() {
+        var childNodes = document.body.children;
+
+        for (var i = 0; i < childNodes.length; i++) {
+          var node = childNodes[i];
+          //if (node.nodeType != 1) continue
+          console.log(node.nodeName);
+        }
+      }
+      go();
+    </script>
+  </body>
+</html>
