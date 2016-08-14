@@ -9,8 +9,7 @@ class Calculator {
   }
 
   evaluate() {
-    // function which will take all the inputs from the
-    // this.expression and return a result
+    return eval(this.expression.join(''));
   }
 
   cancel() {
@@ -125,10 +124,6 @@ class Calculator {
       });
     }
     this.display.innerHTML = toShow;
-  }
-
-  evaluate() {
-    return eval(this.expression.join(''));
   }
 }
 
