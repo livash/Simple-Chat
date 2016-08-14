@@ -12,10 +12,6 @@ class Calculator {
     return eval(this.expression.join(''));
   }
 
-  cancel() {
-    this.expression = []; // clear out the expression
-  }
-
   render(elementId) {
     let elem = document.getElementById(elementId);
     let calcUI = this.createCalcUI();
