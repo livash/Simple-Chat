@@ -50,10 +50,32 @@ window.onload = function() {
   document.body.appendChild(btn1);
   document.body.appendChild(br);
   document.body.appendChild(btn2);
-  document.body.appendChild(document.createElement('br'));
+  document.body.appendChild(br.cloneNode(true));
   document.body.appendChild(input);
   document.body.appendChild(span);
-  document.body.appendChild(document.createElement('br'));
+  document.body.appendChild(br.cloneNode(true));
   document.body.appendChild(link);
+
+
+  // create a prompt that append users input as LI into UL
+  // pressing ESC will finish the propmt cycle
+
+  var h2 = document.createElement('h2');
+  h2.appendChild(document.createTextNode('My Master List'));
+  document.body.appendChild(h2);
+
+  var ul = document.createElement('ul');
+  document.body.appendChild(ul);
+
+  while(true) {
+    var data = prompt("Add an item to your Master List", "");
+
+    if (data === null)
+      break;
+
+    var li = document.createElement('li');
+    li.appendChild(document.createTextNode(data));
+    ul.appendChild(li);
+  }
 
 }
