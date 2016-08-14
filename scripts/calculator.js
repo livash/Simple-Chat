@@ -28,6 +28,7 @@ class Calculator {
     main.setAttribute('class', 'calc-main clearfix');
 
     let display = this.createDisplay();
+    this.display = display;
     let buttons = this.createButtons();
 
     main.appendChild(display);
@@ -73,15 +74,59 @@ class Calculator {
   }
 
   createOperators() {
-    let operators = document.createElement('div');
-    operators.setAttribute('class', 'operators');
+    let operatorsArr = document.createElement('div');
+    operatorsArr.setAttribute('class', 'operators');
 
-    return operators;
+    this.operators.forEach((operator) => {
+      let button = document.createElement('button');
+      button.setAttribute('class', 'operator');
+      button.setAttribute('value', operator);
+      button.setAttribute('onclick', 'calculator.operatorClick(event)');
+      button.innerHTML = operator;
+      operatorsArr.appendChild(button);
+    });
+
+    return operatorsArr;
   }
 
   numberClick(event) {
     let value = event.target.getAttribute('value');
     this.expression.push(value);
+    this.updateDisplay();
+  }
+
+  operatorClick(event) {
+    let value = event.target.getAttribute('value');
+    switch (value) {
+      case 'c':
+        this.expression = [];
+        this.updateDisplay();
+        break;
+      case '=':
+        let result = this.evaluate();
+        this.expression = [result];
+        this.updateDisplay();
+        break;
+      default:
+        this.expression.push(value);
+        this.updateDisplay();
+        break;
+    }
+  }
+
+  updateDisplay() {
+    let toShow = '0';
+    if (this.expression.length > 0) {
+      toShow = '';
+      this.expression.forEach((val) => {
+        toShow += val;
+      });
+    }
+    this.display.innerHTML = toShow;
+  }
+
+  evaluate() {
+    return eval(this.expression.join(''));
   }
 }
 
