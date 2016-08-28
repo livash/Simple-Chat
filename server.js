@@ -25,6 +25,10 @@ app.get('/test_page2', function(req, res) {
   res.sendFile(__dirname + '/test_page2.html');
 });
 
+app.get('/canvas', function(req, res) {
+  res.sendFile(__dirname + '/canvas.html');
+});
+
 io.sockets.on('connection', function(socket) {
   // notify all users that a new user has connected
   io.emit('serverMsg:newUser', 'New User has joined this chat');
