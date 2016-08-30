@@ -1,6 +1,10 @@
-function drawOverlapRect(id) {
+function initContext(id) {
   var canvas = document.getElementById(id);
-  var ctx = canvas.getContext('2d');
+  return canvas.getContext('2d');
+}
+
+function drawOverlapRect(id) {
+  var ctx = initContext(id);
 
   ctx.fillStyle = "rgb(200,0,0)";
   ctx.fillRect(5, 5, 100, 100);
@@ -16,9 +20,9 @@ function drawOverlapRect(id) {
 
 // picture frame
 function drawPictureFrame(id) {
-  var canvas = document.getElementById(id);
-  var ctx = canvas.getContext('2d');
+  var ctx = initContext(id);
 
+  ctx.fillStyle = 'blue';
   ctx.fillRect(5,5,180,180);
   ctx.clearRect(25,25,140,140);
   ctx.strokeRect(40,40,110,110);
