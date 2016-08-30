@@ -5,7 +5,7 @@ function initContext(id) {
 
 function drawOverlapRect(id) {
   var ctx = initContext(id);
-
+  // red rectangle
   ctx.fillStyle = "rgb(200,0,0)";
   ctx.fillRect(5, 5, 100, 100);
   ctx.fillStyle="rgba(0,0,200,0.5)";
@@ -18,10 +18,8 @@ function drawOverlapRect(id) {
   ctx.clearRect(25,25,25,25);
 }
 
-// picture frame
 function drawPictureFrame(id) {
   var ctx = initContext(id);
-
   ctx.fillStyle = 'blue';
   ctx.fillRect(5,5,180,180);
   ctx.clearRect(25,25,140,140);
