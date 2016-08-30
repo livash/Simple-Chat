@@ -26,5 +26,32 @@ function drawPictureFrame(id) {
   ctx.strokeRect(40,40,110,110);
 }
 
+function drawTriangle(id) {
+  var ctx = initContext(id);
+  ctx.fillStyle = 'rgba(200,0,0,0.5)';
+  ctx.beginPath();
+  ctx.moveTo(5,5);
+  ctx.lineTo(100,200);
+  ctx.lineTo(200,5);
+  ctx.fill();
+
+  // second triangle
+  ctx.fillStyle = 'rgba(0,200,0,0.5)';
+  ctx.beginPath();
+  ctx.moveTo(5,5);
+  ctx.lineTo(5,205);
+  ctx.lineTo(205,5);
+  ctx.fill();
+
+  //third triangle
+  ctx.fillStyle = 'rgba(10,100,100,0.6)';
+  ctx.beginPath();
+  ctx.moveTo(5,5);
+  ctx.lineTo(205,205);
+  ctx.lineTo(205,105);
+  ctx.fill();
+}
+
 drawOverlapRect('canvas-example');
 drawPictureFrame('picture-frame');
+drawTriangle('triangle-example');
