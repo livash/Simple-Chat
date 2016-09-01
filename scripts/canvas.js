@@ -68,7 +68,23 @@ function drawSmiley(id) {
   ctx.stroke();
 }
 
+function drawMultiline(id) {
+  var ctx = initContext(id);
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(100,5);
+  ctx.lineTo(15,195);
+  ctx.lineTo(195,75);
+  ctx.lineTo(5,75);
+  ctx.lineTo(175,195);
+  ctx.lineTo(100,5);
+  ctx.stroke();
+  ctx.fillStyle='yellow';
+  ctx.fill();
+}
+
 drawOverlapRect('canvas-example');
 drawPictureFrame('picture-frame');
 drawTriangle('triangle-example');
 drawSmiley('smiley-face');
+drawMultiline('multiline');
