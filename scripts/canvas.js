@@ -83,8 +83,27 @@ function drawMultiline(id) {
   ctx.fill();
 }
 
+function drawDiagonalTriangles(id) {
+  var ctx = initContext(id);
+  // first triangle
+  ctx.beginPath();
+  ctx.moveTo(10,5);
+  ctx.lineTo(195,5);
+  ctx.lineTo(195,190);
+  ctx.fill();
+  // second triangle
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(10,15);
+  ctx.lineTo(10,185);
+  ctx.lineTo(185,185);
+  ctx.lineTo(10,15);
+  ctx.stroke();
+}
+
 drawOverlapRect('canvas-example');
 drawPictureFrame('picture-frame');
 drawTriangle('triangle-example');
 drawSmiley('smiley-face');
 drawMultiline('multiline');
+drawDiagonalTriangles('triangles');
