@@ -101,9 +101,36 @@ function drawDiagonalTriangles(id) {
   ctx.stroke();
 }
 
+function drawArcs(id) {
+  var ctx = initContext(id);
+  var colors = ['red', 'blue', 'green'];
+  for(var i=0;i<4;i++){
+        for(var j=0;j<3;j++){
+          ctx.fillStyle = colors[j];
+          ctx.strokeStyle = colors[j];
+          ctx.beginPath();
+          var x = 25+j*50; // x coordinate
+          var y = 25+i*50; // y coordinate
+          var radius = 20; // Arc radius
+          var startAngle = 0; // Starting point on circle
+          var endAngle = Math.PI+(Math.PI*j)/2; // End point on circle
+          var anticlockwise = i%2==0 ? false : true; // clockwise or anticlockwise
+
+          ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+
+          if (i>1){
+            ctx.fill();
+          } else {
+            ctx.stroke();
+          }
+        }
+      }
+}
+
 drawOverlapRect('canvas-example');
 drawPictureFrame('picture-frame');
 drawTriangle('triangle-example');
 drawSmiley('smiley-face');
 drawMultiline('multiline');
 drawDiagonalTriangles('triangles');
+drawArcs('arcs');
