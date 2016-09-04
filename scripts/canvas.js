@@ -127,6 +127,36 @@ function drawArcs(id) {
       }
 }
 
+function drawOverlappingArcs(id) {
+  var ctx = initContext(id);
+  // arc one
+  ctx.beginPath();
+  ctx.arc(130, 15, 120, Math.PI, 0, true);
+  ctx.stroke();
+
+  // arc two
+  ctx.beginPath();
+  ctx.strokeColor = 'grey';
+  ctx.arc(130, 130, 120, Math.PI, 0, false);
+  ctx.stroke();
+
+  // circle
+  ctx.beginPath();
+  ctx.fillStyle = 'cyan';
+  ctx.arc(130, 70, 50, 0, 2 * Math.PI, true);
+  ctx.fill();
+  ctx.strokeColor = 'blue';
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.fillStyle = 'white';
+  ctx.arc(130, 70, 25, 0, 2 * Math.PI, true);
+  ctx.fill();
+  ctx.strokeColor = 'black';
+  ctx.stroke();
+}
+
+
 drawOverlapRect('canvas-example');
 drawPictureFrame('picture-frame');
 drawTriangle('triangle-example');
@@ -134,3 +164,4 @@ drawSmiley('smiley-face');
 drawMultiline('multiline');
 drawDiagonalTriangles('triangles');
 drawArcs('arcs');
+drawOverlappingArcs('overlapping-arcs');
