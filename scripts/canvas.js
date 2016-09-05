@@ -152,8 +152,41 @@ function drawOverlappingArcs(id) {
   ctx.fillStyle = 'white';
   ctx.arc(130, 70, 25, 0, 2 * Math.PI, true);
   ctx.fill();
-  ctx.strokeColor = 'black';
+  ctx.strokeStyle = 'black';
   ctx.stroke();
+}
+
+function drawQuadraticCurve(id) {
+  var ctx = initContext(id);
+  //x-axis
+  ctx.beginPath();
+  ctx.moveTo(10,170);
+  ctx.lineTo(290, 170);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(290,170);
+  ctx.lineTo(280,175);
+  ctx.lineTo(280,165);
+  ctx.fill();
+  // y-axis
+  ctx.moveTo(150,10);
+  ctx.lineTo(150, 190);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(150,10);
+  ctx.lineTo(155,20);
+  ctx.lineTo(145,20);
+  ctx.fill();
+  // curve
+  ctx.beginPath();
+  ctx.strokeStyle = 'blue';
+  ctx.moveTo(65,25);
+  ctx.quadraticCurveTo(150,315, 235,25);
+  ctx.stroke();
+
+  // legend
+  ctx.font = "20px Arial";
+  ctx.fillText("y = x ^ 2",10,100);
 }
 
 
@@ -165,3 +198,4 @@ drawMultiline('multiline');
 drawDiagonalTriangles('triangles');
 drawArcs('arcs');
 drawOverlappingArcs('overlapping-arcs');
+drawQuadraticCurve('quadrati-curve');
