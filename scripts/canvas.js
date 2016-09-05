@@ -177,16 +177,25 @@ function drawQuadraticCurve(id) {
   ctx.lineTo(155,20);
   ctx.lineTo(145,20);
   ctx.fill();
-  // curve
+  // quadratic curve
   ctx.beginPath();
   ctx.strokeStyle = 'blue';
   ctx.moveTo(65,25);
   ctx.quadraticCurveTo(150,315, 235,25);
   ctx.stroke();
+  // cubic curve
+  ctx.beginPath();
+  ctx.strokeStyle = 'red';
+  ctx.moveTo(95,25);
+  ctx.quadraticCurveTo(150,315, 205,25);
+  ctx.stroke();
 
   // legend
   ctx.font = "20px Arial";
-  ctx.fillText("y = x ^ 2",10,100);
+  ctx.fillStyle = 'blue';
+  ctx.fillText("y = x ^ 2",10,130);
+  ctx.fillStyle = 'red';
+  ctx.fillText("y = x ^ 4",10,100);
 }
 
 
