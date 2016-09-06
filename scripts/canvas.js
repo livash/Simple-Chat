@@ -233,6 +233,9 @@ function drawRedHeart(id) {
 
   ctx.fillStyle = 'palevioletred';
   drawHeart(ctx, 138, 98, 0.7);
+
+  // var p = new Path2D("M10 10 h 80 v 80 h -80 Z");
+  // ctx.fill(p);
 }
 
 drawOverlapRect('canvas-example');
