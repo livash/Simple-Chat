@@ -198,23 +198,16 @@ function drawQuadraticCurve(id) {
   ctx.fillText("y = x ^ 4",10,100);
 }
 
-function getTransform(offset, stretch) {
-  var k = stretch || 1;
+function getTransform(offset, zoom) {
+  var k = zoom || 1;
   return function (value) {
     return k * (offset + value);
   }
 }
 
-function drawRedHeart(id) {
-  var ctx = initContext(id);
-  // background
-  ctx.fillStyle = 'lightsalmon';
-  ctx.fillRect(0,0,300,200);
-  
-  // heart
-  var x = getTransform(50, 1.2);
-  var y = getTransform(15, 1.2);
-  ctx.fillStyle = 'crimson';
+function drawHeart(ctx, offsetX, offsetY, zoom) {
+  var x = getTransform(offsetX, zoom);
+  var y = getTransform(offsetY, zoom);
   ctx.beginPath();
   ctx.moveTo(x(75),y(40));
   ctx.bezierCurveTo(x(75),y(37),x(70),y(25),x(50),y(25));
@@ -224,6 +217,22 @@ function drawRedHeart(id) {
   ctx.bezierCurveTo(x(130),y(62.5),x(130),y(25),x(100),y(25));
   ctx.bezierCurveTo(x(85),y(25),x(75),y(37),x(75),y(40));
   ctx.fill();
+}
+
+function drawRedHeart(id) {
+  var ctx = initContext(id);
+  // background
+  ctx.fillStyle = 'lightsalmon';
+  ctx.fillRect(0,0,300,200);
+
+  ctx.fillStyle = 'crimson';
+  drawHeart(ctx, 25, 5, 1.5);
+
+  ctx.fillStyle = 'orangered';
+  drawHeart(ctx, 75, 45, 1);
+
+  ctx.fillStyle = 'palevioletred';
+  drawHeart(ctx, 138, 98, 0.7);
 }
 
 drawOverlapRect('canvas-example');
