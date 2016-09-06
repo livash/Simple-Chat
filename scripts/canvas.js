@@ -198,19 +198,30 @@ function drawQuadraticCurve(id) {
   ctx.fillText("y = x ^ 4",10,100);
 }
 
+function getTransform(offset) {
+  return function (value) {
+    return offset + value;
+  }
+}
+
 function drawRedHeart(id) {
   var ctx = initContext(id);
+  // background
   ctx.fillStyle = 'lightsalmon';
   ctx.fillRect(0,0,300,200);
+  
+  // heart
+  var x = getTransform(70);
+  var y = getTransform(30);
   ctx.fillStyle = 'crimson';
   ctx.beginPath();
-  ctx.moveTo(75,40);
-  ctx.bezierCurveTo(75,37,70,25,50,25);
-  ctx.bezierCurveTo(20,25,20,62.5,20,62.5);
-  ctx.bezierCurveTo(20,80,40,102,75,120);
-  ctx.bezierCurveTo(110,102,130,80,130,62.5);
-  ctx.bezierCurveTo(130,62.5,130,25,100,25);
-  ctx.bezierCurveTo(85,25,75,37,75,40);
+  ctx.moveTo(x(75),y(40));
+  ctx.bezierCurveTo(x(75),y(37),x(70),y(25),x(50),y(25));
+  ctx.bezierCurveTo(x(20),y(25),x(20),y(62.5),x(20),y(62.5));
+  ctx.bezierCurveTo(x(20),y(80),x(40),y(102),x(75),y(120));
+  ctx.bezierCurveTo(x(110),y(102),x(130),y(80),x(130),y(62.5));
+  ctx.bezierCurveTo(x(130),y(62.5),x(130),y(25),x(100),y(25));
+  ctx.bezierCurveTo(x(85),y(25),x(75),y(37),x(75),y(40));
   ctx.fill();
 }
 
