@@ -198,9 +198,10 @@ function drawQuadraticCurve(id) {
   ctx.fillText("y = x ^ 4",10,100);
 }
 
-function getTransform(offset) {
+function getTransform(offset, stretch) {
+  var k = stretch || 1;
   return function (value) {
-    return offset + value;
+    return k * (offset + value);
   }
 }
 
@@ -211,8 +212,8 @@ function drawRedHeart(id) {
   ctx.fillRect(0,0,300,200);
   
   // heart
-  var x = getTransform(70);
-  var y = getTransform(30);
+  var x = getTransform(50, 1.2);
+  var y = getTransform(15, 1.2);
   ctx.fillStyle = 'crimson';
   ctx.beginPath();
   ctx.moveTo(x(75),y(40));
