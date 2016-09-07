@@ -255,6 +255,28 @@ function drawColorSwatch(id, options) {
   }
 }
 
+function drawCirclesWithStroke(id, options) {
+  var ctx = document.getElementById(id).getContext('2d');
+  var i, k;
+  for(i = 0; i < 6; i++) {
+    for(k = 0; k < 6; k++) {
+      // set stroke color
+      if (options.r && options.g) {
+        ctx.strokeStyle = 'rgb(' + Math.floor(255 * (1 - k / 6)) + ',' +
+                                  Math.floor(255 * (1 - i / 6)) + ',0)';
+      } else if (options.g && options.b) {
+        ctx.strokeStyle = 'rgb(0,' + Math.floor(255 * (1 - i / 6)) + ',' +
+                                  Math.floor(255 * (1 - k / 6)) + ')';
+      }
+
+      // draw circle
+      ctx.beginPath();
+      ctx.arc(12.5 + k * 25, 12.5 + i * 25, 10, 0, Math.PI * 2, true);
+      ctx.stroke();
+    }
+  }
+}
+
 drawOverlapRect('canvas-example');
 drawPictureFrame('picture-frame');
 drawTriangle('triangle-example');
@@ -267,3 +289,4 @@ drawQuadraticCurve('quadrati-curve');
 drawRedHeart('red-heart');
 drawColorSwatch('color-swatch-one', {r: true, g: true, b: false});
 drawColorSwatch('color-swatch-two', {r: false, g: true, b: true});
+drawCirclesWithStroke('circles-with-stroke-one', {r: true, g: true, b: false});
