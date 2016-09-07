@@ -238,6 +238,18 @@ function drawRedHeart(id) {
   // ctx.fill(p);
 }
 
+function drawColorSwatch(id) {
+  var ctx = document.getElementById(id).getContext('2d');
+  var i, k;
+  for (i = 0; i < 6; i++) {
+    for(k = 0; k < 6; k++) {
+      ctx.fillStyle = 'rgb(' + Math.floor(255 * (1 - k / 6)) + ',' +
+                                Math.floor(255 * (1 - i / 6)) + ',0)';
+      ctx.fillRect(75 + k * 25, 25 + i * 25, 25, 25);
+    }
+  }
+}
+
 drawOverlapRect('canvas-example');
 drawPictureFrame('picture-frame');
 drawTriangle('triangle-example');
@@ -248,3 +260,4 @@ drawArcs('arcs');
 drawOverlappingArcs('overlapping-arcs');
 drawQuadraticCurve('quadrati-curve');
 drawRedHeart('red-heart');
+drawColorSwatch('color-swatch');
