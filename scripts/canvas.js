@@ -278,6 +278,31 @@ function drawCirclesWithStroke(id, options) {
   }
 }
 
+function drawTransparentCircles(id, offset) {
+  var offset = offset || {x: 0, y: 0};
+  var ctx = document.getElementById(id).getContext('2d');
+  // draw background
+  ctx.fillStyle = '#F30';
+  ctx.fillRect(0 + offset.x, 0 + offset.y, 75, 75);
+  ctx.fillStyle = '#09F';
+  ctx.fillRect(75 + offset.x, 0 + offset.y, 75, 75);
+  ctx.fillStyle = '#6C0';
+  ctx.fillRect(0 + offset.x, 75 + offset.y, 75, 75);
+  ctx.fillStyle = '#FD0';
+  ctx.fillRect(75 + offset.x, 75 + offset.y, 75, 75);
+  ctx.fillStyle = '#FFF';
+
+  // set transparency value
+  ctx.globalAlpha = 0.2;
+
+  // Draw semi transparent circles
+  for (i = 0; i < 7; i++) {
+    ctx.beginPath();
+    ctx.arc(75 + offset.x, 75 + offset.y, 10 + 10 * i, 0, Math.PI * 2, true);
+    ctx.fill();
+  }
+}
+
 drawOverlapRect('canvas-example');
 drawPictureFrame('picture-frame');
 drawTriangle('triangle-example');
@@ -292,3 +317,4 @@ drawColorSwatch('color-swatch-one', {r: true, g: true, b: false});
 drawColorSwatch('color-swatch-two', {r: false, g: true, b: true});
 drawCirclesWithStroke('circles-with-stroke-one', {r: true, g: true, b: false});
 drawCirclesWithStroke('circles-with-stroke-two', {r: false, g: true, b: true});
+drawTransparentCircles('transparent-circles', {x: 75, y: 25});
