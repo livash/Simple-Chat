@@ -258,6 +258,7 @@ function drawColorSwatch(id, options) {
 function drawCirclesWithStroke(id, options) {
   var ctx = document.getElementById(id).getContext('2d');
   var i, k;
+  ctx.lineWidth = 1.5;
   for(i = 0; i < 6; i++) {
     for(k = 0; k < 6; k++) {
       // set stroke color
@@ -290,3 +291,4 @@ drawRedHeart('red-heart');
 drawColorSwatch('color-swatch-one', {r: true, g: true, b: false});
 drawColorSwatch('color-swatch-two', {r: false, g: true, b: true});
 drawCirclesWithStroke('circles-with-stroke-one', {r: true, g: true, b: false});
+drawCirclesWithStroke('circles-with-stroke-two', {r: false, g: true, b: true});
