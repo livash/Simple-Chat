@@ -329,6 +329,27 @@ function drawLineCap(id) {
   }
 }
 
+function drawZigzag(ctx, joinStyle, i) {
+  ctx.lineJoin = joinStyle;
+  ctx.lineWidth = 15;
+  ctx.beginPath();
+  ctx.moveTo(25,50 + i * 40);
+  ctx.lineTo(50, 25 + i * 40);
+  ctx.lineTo(75,50 + i * 40);
+  ctx.lineTo(100, 25 + i * 40);
+  ctx.lineTo(125, 50 + i * 40)
+  ctx.stroke();
+}
+
+function drawLineJoin(id) {
+  var ctx = document.getElementById(id).getContext('2d');
+  var joinStyles = ['round', 'bevel', 'miter'];
+  var i;
+  for (i = 0; i < joinStyles.length; i++) {
+    drawZigzag(ctx, joinStyles[i], i);
+  }
+}
+
 drawOverlapRect('canvas-example');
 drawPictureFrame('picture-frame');
 drawTriangle('triangle-example');
@@ -346,3 +367,4 @@ drawCirclesWithStroke('circles-with-stroke-two', {r: false, g: true, b: true});
 drawTransparentCircles('transparent-circles', {x: 75, y: 25});
 drawLineWidth('line-width');
 drawLineCap('line-cap');
+drawLineJoin('line-join');
