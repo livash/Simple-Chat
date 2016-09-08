@@ -303,6 +303,18 @@ function drawTransparentCircles(id, offset) {
   }
 }
 
+function drawLineWidth(id) {
+  var ctx = document.getElementById(id).getContext('2d');
+  var i;
+  for (i = 1; i < 10; i++) {
+    ctx.lineWidth = i;
+    ctx.beginPath();
+    ctx.moveTo(25 + i * 15, 10);
+    ctx.lineTo(25 + i * 15, 190);
+    ctx.stroke();
+  }
+}
+
 drawOverlapRect('canvas-example');
 drawPictureFrame('picture-frame');
 drawTriangle('triangle-example');
@@ -318,3 +330,4 @@ drawColorSwatch('color-swatch-two', {r: false, g: true, b: true});
 drawCirclesWithStroke('circles-with-stroke-one', {r: true, g: true, b: false});
 drawCirclesWithStroke('circles-with-stroke-two', {r: false, g: true, b: true});
 drawTransparentCircles('transparent-circles', {x: 75, y: 25});
+drawLineWidth('line-width');
