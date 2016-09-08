@@ -315,6 +315,20 @@ function drawLineWidth(id) {
   }
 }
 
+function drawLineCap(id) {
+  var ctx = document.getElementById(id).getContext('2d');
+  var capStyles = ['butt', 'round', 'square'];
+  var i;
+  for (i = 0; i < capStyles.length; i++) {
+    ctx.lineWidth = 20;
+    ctx.lineCap = capStyles[i];
+    ctx.beginPath();
+    ctx.moveTo(25, 25 + i * 25);
+    ctx.lineTo(275, 25 + i * 25);
+    ctx.stroke();
+  }
+}
+
 drawOverlapRect('canvas-example');
 drawPictureFrame('picture-frame');
 drawTriangle('triangle-example');
@@ -331,3 +345,4 @@ drawCirclesWithStroke('circles-with-stroke-one', {r: true, g: true, b: false});
 drawCirclesWithStroke('circles-with-stroke-two', {r: false, g: true, b: true});
 drawTransparentCircles('transparent-circles', {x: 75, y: 25});
 drawLineWidth('line-width');
+drawLineCap('line-cap');
