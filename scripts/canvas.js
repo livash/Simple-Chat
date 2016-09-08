@@ -318,19 +318,22 @@ function drawLineWidth(id) {
 function drawLineCap(id) {
   var ctx = document.getElementById(id).getContext('2d');
   var capStyles = ['butt', 'round', 'square'];
+  var colors = ['navy', 'limegreen', 'orangered'];
   var i;
   for (i = 0; i < capStyles.length; i++) {
     ctx.lineWidth = 20;
+    ctx.strokeStyle = colors[i];
     ctx.lineCap = capStyles[i];
     ctx.beginPath();
-    ctx.moveTo(25, 25 + i * 25);
-    ctx.lineTo(275, 25 + i * 25);
+    ctx.moveTo(25, 25 + i * 40);
+    ctx.lineTo(275, 25 + i * 40);
     ctx.stroke();
   }
 }
 
-function drawZigzag(ctx, joinStyle, i) {
+function drawZigzag(ctx, joinStyle, color, i) {
   ctx.lineJoin = joinStyle;
+  ctx.strokeStyle = color;
   ctx.lineWidth = 15;
   ctx.beginPath();
   ctx.moveTo(25,50 + i * 40);
@@ -344,9 +347,10 @@ function drawZigzag(ctx, joinStyle, i) {
 function drawLineJoin(id) {
   var ctx = document.getElementById(id).getContext('2d');
   var joinStyles = ['round', 'bevel', 'miter'];
+  var colors = ['blue', 'crimson', 'lime'];
   var i;
   for (i = 0; i < joinStyles.length; i++) {
-    drawZigzag(ctx, joinStyles[i], i);
+    drawZigzag(ctx, joinStyles[i], colors[i], i);
   }
 }
 
