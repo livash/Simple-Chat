@@ -354,6 +354,32 @@ function drawLineJoin(id) {
   }
 }
 
+
+function drawMarchingPattern(id) {
+  var canvas = document.getElementById(id);
+  var ctx = canvas.getContext('2d');
+  var offset = 0;
+
+  function drawRect() {
+    ctx.clearRect(0,0, canvas.width, canvas.height);
+    ctx.lineWidth = 4;
+    ctx.setLineDash([4,2]);
+    ctx.lineDashOffset = -offset;
+    ctx.strokeRect(25,25,200,100);
+  }
+
+  function march() {
+    offset += 1;
+    if (offset > 16) {
+      offset = 0;
+    }
+    drawRect();
+    setTimeout(march, 200);
+  }
+
+  march();
+}
+
 drawOverlapRect('canvas-example');
 drawPictureFrame('picture-frame');
 drawTriangle('triangle-example');
@@ -372,3 +398,4 @@ drawTransparentCircles('transparent-circles', {x: 75, y: 25});
 drawLineWidth('line-width');
 drawLineCap('line-cap');
 drawLineJoin('line-join');
+drawMarchingPattern('marching-ants');
