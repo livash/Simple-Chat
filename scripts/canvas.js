@@ -359,18 +359,19 @@ function drawMarchingPattern(id) {
   var canvas = document.getElementById(id);
   var ctx = canvas.getContext('2d');
   var offset = 0;
+  ctx.lineWidth = 4;
+  ctx.setLineDash([4,2]);
+  ctx.strokeStyle = 'blue';
 
   function drawRect() {
     ctx.clearRect(0,0, canvas.width, canvas.height);
-    ctx.lineWidth = 4;
-    ctx.setLineDash([4,2]);
     ctx.lineDashOffset = -offset;
-    ctx.strokeRect(25,25,200,100);
+    ctx.strokeRect(50,50,200,100);
   }
 
   function march() {
     offset += 1;
-    if (offset > 16) {
+    if (offset > 24) {
       offset = 0;
     }
     drawRect();
