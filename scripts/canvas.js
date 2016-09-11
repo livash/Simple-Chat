@@ -336,11 +336,11 @@ function drawZigzag(ctx, joinStyle, color, i) {
   ctx.strokeStyle = color;
   ctx.lineWidth = 15;
   ctx.beginPath();
-  ctx.moveTo(25,50 + i * 40);
-  ctx.lineTo(50, 25 + i * 40);
-  ctx.lineTo(75,50 + i * 40);
-  ctx.lineTo(100, 25 + i * 40);
-  ctx.lineTo(125, 50 + i * 40)
+  ctx.moveTo(50,75 + i * 40);
+  ctx.lineTo(75, 50 + i * 40);
+  ctx.lineTo(100,75 + i * 40);
+  ctx.lineTo(125, 50 + i * 40);
+  ctx.lineTo(150, 75 + i * 40)
   ctx.stroke();
 }
 
@@ -381,6 +381,20 @@ function drawMarchingPattern(id) {
   march();
 }
 
+function drawMoreVerticalLines(id) {
+  var ctx = document.getElementById(id).getContext('2d');
+  var offset = { x: 175, y:25 };
+  var i, spacer = 20;
+  for (i = 0; i < 8; i++) {
+    ctx.beginPath();
+    ctx.lineWidth = i * 2 + 1;
+    ctx.strokeStyle = 'navy';
+    ctx.moveTo(offset.x - i * spacer, offset.y);
+    ctx.lineTo(offset.x - i * spacer, offset.y + 150);
+    ctx.stroke();
+  }
+}
+
 drawOverlapRect('canvas-example');
 drawPictureFrame('picture-frame');
 drawTriangle('triangle-example');
@@ -400,3 +414,4 @@ drawLineWidth('line-width');
 drawLineCap('line-cap');
 drawLineJoin('line-join');
 drawMarchingPattern('marching-ants');
+drawMoreVerticalLines('more-lines');
