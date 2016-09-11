@@ -359,22 +359,35 @@ function drawMarchingPattern(id) {
   var canvas = document.getElementById(id);
   var ctx = canvas.getContext('2d');
   var offset = 0;
-  ctx.lineWidth = 4;
-  ctx.setLineDash([4,2]);
-  ctx.strokeStyle = 'blue';
 
   function drawRect() {
     ctx.clearRect(0,0, canvas.width, canvas.height);
+    ctx.lineWidth = 4;
+    ctx.setLineDash([4,2]);
+    ctx.strokeStyle = 'blue';
     ctx.lineDashOffset = -offset;
     ctx.strokeRect(50,50,200,100);
   }
 
+  function drawSquigly() {
+    ctx.lineJoin = "round ";
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = 15;
+    ctx.beginPath();
+    var i = 1;
+    ctx.moveTo(50,75 + i * 40);
+    ctx.lineTo(75, 50 + i * 40);
+    ctx.lineTo(100,75 + i * 40);
+    ctx.lineTo(125, 50 + i * 40);
+    ctx.lineTo(150, 75 + i * 40)
+    ctx.stroke();
+  }
+
   function march() {
     offset += 1;
-    if (offset > 24) {
-      offset = 0;
-    }
+    if (offset > 24) offset = 0;
     drawRect();
+    drawSquigly();
     setTimeout(march, 200);
   }
 
@@ -388,7 +401,7 @@ function drawMoreVerticalLines(id) {
   for (i = 0; i < 6; i++) {
     ctx.beginPath();
     ctx.lineWidth = i * 2 + 1;
-    ctx.strokeStyle = 'navy';
+    ctx.strokeStyle = 'blue';
     ctx.moveTo(offset.x - i * spacer, offset.y);
     ctx.lineTo(offset.x - i * spacer, offset.y + 150);
     ctx.stroke();
