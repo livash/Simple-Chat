@@ -383,14 +383,23 @@ function drawMarchingPattern(id) {
 
 function drawMoreVerticalLines(id) {
   var ctx = document.getElementById(id).getContext('2d');
-  var offset = { x: 175, y:25 };
+  var offset = { x: 225, y:25 };
   var i, spacer = 20;
-  for (i = 0; i < 8; i++) {
+  for (i = 0; i < 6; i++) {
     ctx.beginPath();
     ctx.lineWidth = i * 2 + 1;
     ctx.strokeStyle = 'navy';
     ctx.moveTo(offset.x - i * spacer, offset.y);
     ctx.lineTo(offset.x - i * spacer, offset.y + 150);
+    ctx.stroke();
+  }
+
+  for (i = 0; i < 6; i++) {
+    ctx.beginPath();
+    ctx.lineWidth = i * 2 + 1;
+    ctx.strokeStyle = 'navy';
+    ctx.moveTo(25 + i * spacer, offset.y);
+    ctx.lineTo(25 + i * spacer, offset.y + 150);
     ctx.stroke();
   }
 }
