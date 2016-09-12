@@ -336,11 +336,11 @@ function drawZigzag(ctx, joinStyle, color, i) {
   ctx.strokeStyle = color;
   ctx.lineWidth = 15;
   ctx.beginPath();
-  ctx.moveTo(50,75 + i * 40);
-  ctx.lineTo(75, 50 + i * 40);
-  ctx.lineTo(100,75 + i * 40);
-  ctx.lineTo(125, 50 + i * 40);
-  ctx.lineTo(150, 75 + i * 40)
+  ctx.moveTo(150,75 + i * 40);
+  ctx.lineTo(175, 50 + i * 40);
+  ctx.lineTo(200,75 + i * 40);
+  ctx.lineTo(225, 50 + i * 40);
+  ctx.lineTo(250, 75 + i * 40)
   ctx.stroke();
 }
 
@@ -352,6 +352,15 @@ function drawLineJoin(id) {
   for (i = 0; i < joinStyles.length; i++) {
     drawZigzag(ctx, joinStyles[i], colors[i], i);
   }
+
+  ctx.shadowOffsetX = 2;
+  ctx.shadowOffsetY = 2;
+  ctx.shadowBlur = 2;
+  ctx.shadowColor = "rgba(0, 0, 0, 0.5)";
+ 
+  ctx.font = "30px Arial";
+  ctx.fillStyle = "Blue";
+  ctx.fillText("Metro Sign", 10, 40);
 }
 
 
