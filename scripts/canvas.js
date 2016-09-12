@@ -434,6 +434,19 @@ function drawSimpleLinearGradient(id) {
   ctx.fillRect(0,0,300,200);
 }
 
+function drawSimpleRadialGradient(id) {
+  var ctx = document.getElementById(id).getContext('2d');
+
+  // create fill gradient
+  var gradient = ctx.createRadialGradient(75, 75, 0, 75, 75, 100);
+  gradient.addColorStop(0, 'white');
+  gradient.addColorStop(1, 'black');
+
+  ctx.fillStyle = gradient;
+  ctx.arc(100,100,75,0, Math.PI * 2, true);
+  ctx.fill();
+}
+
 drawOverlapRect('canvas-example');
 drawPictureFrame('picture-frame');
 drawTriangle('triangle-example');
@@ -455,3 +468,4 @@ drawLineJoin('line-join');
 drawMarchingPattern('marching-ants');
 drawMoreVerticalLines('more-lines');
 drawSimpleLinearGradient('simple-linear-gradient');
+drawSimpleRadialGradient('simple-radial-gradient');
