@@ -353,8 +353,8 @@ function drawLineJoin(id) {
     drawZigzag(ctx, joinStyles[i], colors[i], i);
   }
 
-  ctx.shadowOffsetX = 2;
-  ctx.shadowOffsetY = 2;
+  ctx.shadowOffsetX = 10;
+  ctx.shadowOffsetY = 10;
   ctx.shadowBlur = 2;
   ctx.shadowColor = "rgba(0, 0, 0, 0.5)";
  
@@ -491,6 +491,16 @@ function drawFunRadialGradient(id) {
   ctx.fillRect(0, 0, 300, 200);
 }
 
+function drawPinholeInterferencePattern(id) {
+  var ctx = document.getElementById(id).getContext('2d'); 
+  ctx.beginPath();
+  ctx.fillStyle = 'crimson';
+  for (var i = 0; i < 10; i++) {
+    ctx.arc(150, 100, 100 - i * 10, 0, Math.PI * 2, true);
+  }
+  ctx.fill("evenodd");
+}
+
 drawOverlapRect('canvas-example');
 drawPictureFrame('picture-frame');
 drawTriangle('triangle-example');
@@ -514,3 +524,4 @@ drawMoreVerticalLines('more-lines');
 drawSimpleLinearGradient('simple-linear-gradient');
 drawSimpleRadialGradient('simple-radial-gradient');
 drawFunRadialGradient('fun-radial-gradient');
+drawPinholeInterferencePattern('pinhole-interference');
