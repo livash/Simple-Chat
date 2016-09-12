@@ -417,6 +417,23 @@ function drawMoreVerticalLines(id) {
   }
 }
 
+function drawSimpleLinearGradient(id) {
+  var ctx = document.getElementById(id).getContext('2d');
+
+  // create fill gradient as a rainbow
+  var gradient = ctx.createLinearGradient(0,0,300,300);
+  gradient.addColorStop(0, 'red');
+  gradient.addColorStop(0.15, 'orange');
+  gradient.addColorStop(0.3, 'yellow');
+  gradient.addColorStop(0.5, 'green');
+  gradient.addColorStop(0.7, 'cyan');
+  gradient.addColorStop(0.8, 'blue');
+  gradient.addColorStop(1, 'purple');
+
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0,0,300,200);
+}
+
 drawOverlapRect('canvas-example');
 drawPictureFrame('picture-frame');
 drawTriangle('triangle-example');
@@ -437,3 +454,4 @@ drawLineCap('line-cap');
 drawLineJoin('line-join');
 drawMarchingPattern('marching-ants');
 drawMoreVerticalLines('more-lines');
+drawSimpleLinearGradient('simple-linear-gradient');
