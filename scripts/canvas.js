@@ -491,7 +491,7 @@ function drawFunRadialGradient(id) {
   ctx.fillRect(0, 0, 300, 200);
 }
 
-function drawPinholeInterferencePattern(id) {
+function drawRoundPinholeInterferencePattern(id) {
   var ctx = document.getElementById(id).getContext('2d'); 
   ctx.beginPath();
   ctx.fillStyle = 'crimson';
@@ -499,6 +499,20 @@ function drawPinholeInterferencePattern(id) {
     ctx.arc(150, 100, 100 - i * 10, 0, Math.PI * 2, true);
   }
   ctx.fill("evenodd");
+}
+
+function drawSquarePinholeInterencePattern(id) {
+  var ctx = document.getElementById(id).getContext('2d');
+  var lineWidth = 15;
+  ctx.beginPath();
+  ctx.fillStyle = 'navy';
+  for (var i = 0; i < 7; i++) {
+    if (i%2 === 0) {
+      ctx.fillRect(50 + lineWidth*i, lineWidth*i, 200 - i*lineWidth*2, 200 - i*lineWidth*2);
+    } else {
+      ctx.clearRect(50 + lineWidth*i, lineWidth*i, 200 - i*lineWidth*2, 200 - i*lineWidth*2);
+    }
+  }
 }
 
 drawOverlapRect('canvas-example');
@@ -524,4 +538,5 @@ drawMoreVerticalLines('more-lines');
 drawSimpleLinearGradient('simple-linear-gradient');
 drawSimpleRadialGradient('simple-radial-gradient');
 drawFunRadialGradient('fun-radial-gradient');
-drawPinholeInterferencePattern('pinhole-interference');
+drawRoundPinholeInterferencePattern('pinhole-interference');
+drawSquarePinholeInterencePattern('square-pinhole-pattern');
