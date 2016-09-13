@@ -501,16 +501,18 @@ function drawRoundPinholeInterferencePattern(id) {
   ctx.fill("evenodd");
 }
 
-function drawSquarePinholeInterencePattern(id) {
+function drawSquarePinholeInterencePattern(id, angle) {
   var ctx = document.getElementById(id).getContext('2d');
   var lineWidth = 15;
+  var offsetX = angle ? 10 : 50;
   ctx.beginPath();
+  ctx.rotate(angle);
   ctx.fillStyle = 'navy';
   for (var i = 0; i < 7; i++) {
     if (i%2 === 0) {
-      ctx.fillRect(50 + lineWidth*i, lineWidth*i, 200 - i*lineWidth*2, 200 - i*lineWidth*2);
+      ctx.fillRect(offsetX + lineWidth*i, lineWidth*i, 200 - i*lineWidth*2, 200 - i*lineWidth*2);
     } else {
-      ctx.clearRect(50 + lineWidth*i, lineWidth*i, 200 - i*lineWidth*2, 200 - i*lineWidth*2);
+      ctx.clearRect(offsetX + lineWidth*i, lineWidth*i, 200 - i*lineWidth*2, 200 - i*lineWidth*2);
     }
   }
 }
@@ -555,3 +557,4 @@ drawFunRadialGradient('fun-radial-gradient');
 drawRoundPinholeInterferencePattern('pinhole-interference');
 drawSquarePinholeInterencePattern('square-pinhole-pattern');
 drawMyName('my-name');
+drawSquarePinholeInterencePattern('rotated-square', Math.PI/4);
