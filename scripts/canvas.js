@@ -507,6 +507,9 @@ function drawSquarePinholeInterencePattern(id, angle) {
   var offsetX = angle ? 10 : 50;
   ctx.beginPath();
   ctx.rotate(angle);
+  if (angle) {
+    ctx.translate(90, -120);
+  }
   ctx.fillStyle = 'navy';
   for (var i = 0; i < 7; i++) {
     if (i%2 === 0) {
