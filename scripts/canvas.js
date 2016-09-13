@@ -515,6 +515,19 @@ function drawSquarePinholeInterencePattern(id) {
   }
 }
 
+function drawMyName(id) {
+  var ctx = document.getElementById(id).getContext('2d');
+  ctx.font = '40px Arial';
+  ctx.fillStyle = 'lawngreen';
+  ctx.strokeStyle = 'darkgreen';
+  ctx.fillText('ELENA', 25, 45);
+  ctx.strokeText('ELENA', 50, 90);
+  ctx.fillStyle = 'seagreen';
+  ctx.fillText('ELENA', 75, 135);
+  ctx.stokeStyle = 'darkgreen';
+  ctx.strokeText('ELENA', 100, 180);
+}
+
 drawOverlapRect('canvas-example');
 drawPictureFrame('picture-frame');
 drawTriangle('triangle-example');
@@ -540,3 +553,4 @@ drawSimpleRadialGradient('simple-radial-gradient');
 drawFunRadialGradient('fun-radial-gradient');
 drawRoundPinholeInterferencePattern('pinhole-interference');
 drawSquarePinholeInterencePattern('square-pinhole-pattern');
+drawMyName('my-name');
