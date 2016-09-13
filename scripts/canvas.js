@@ -520,12 +520,13 @@ function drawMyName(id) {
   ctx.font = '40px Arial';
   ctx.fillStyle = 'lawngreen';
   ctx.strokeStyle = 'darkgreen';
-  ctx.fillText('ELENA', 25, 45);
-  ctx.strokeText('ELENA', 50, 90);
+  ctx.rotate((Math.PI) / 10);
+  ctx.fillText('ELENA', 75, 15);
+  ctx.strokeText('ELENA', 100, 60);
   ctx.fillStyle = 'seagreen';
-  ctx.fillText('ELENA', 75, 135);
+  ctx.fillText('ELENA', 125, 105);
   ctx.stokeStyle = 'darkgreen';
-  ctx.strokeText('ELENA', 100, 180);
+  ctx.strokeText('ELENA', 150, 150);
 }
 
 drawOverlapRect('canvas-example');
