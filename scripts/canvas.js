@@ -534,6 +534,14 @@ function drawMyName(id) {
   ctx.strokeText('ELENA', 150, 150);
 }
 
+function drawTextAndScale(id) {
+  var ctx = document.getElementById(id).getContext('2d');
+  ctx.font = '25px Arial';
+  ctx.fillStyle = 'crimson';
+  ctx.scale(1, -1); // mirror image along the x-axis
+  ctx.fillText('HELLO WORLD', 50, -75);
+}
+
 drawOverlapRect('canvas-example');
 drawPictureFrame('picture-frame');
 drawTriangle('triangle-example');
@@ -561,3 +569,4 @@ drawRoundPinholeInterferencePattern('pinhole-interference');
 drawSquarePinholeInterencePattern('square-pinhole-pattern');
 drawMyName('my-name');
 drawSquarePinholeInterencePattern('rotated-square', Math.PI/4);
+drawTextAndScale('upside-down-text');
