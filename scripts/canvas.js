@@ -542,6 +542,25 @@ function drawTextAndScale(id) {
   ctx.fillText('HELLO WORLD', 50, -75);
 }
 
+function drawRotatingSquares(id) {
+  var ctx = document.getElementById(id).getContext('2d');
+  // square one
+  ctx.fillStyle = 'cyan';
+  ctx.fillRect(75,25,100,100);
+
+  // square two
+  ctx.fillStyle = 'grey';
+  ctx.rotate(Math.PI/3);
+  ctx.translate(10,-150);
+  ctx.fillRect(75,25,90,90);
+
+  // square three
+  ctx.strokeStyle = 'green';
+  ctx.rotate(0.4);
+  ctx.translate(120, 10);
+  ctx.strokeRect(10,10,50,50);
+}
+
 drawOverlapRect('canvas-example');
 drawPictureFrame('picture-frame');
 drawTriangle('triangle-example');
@@ -570,3 +589,4 @@ drawSquarePinholeInterencePattern('square-pinhole-pattern');
 drawMyName('my-name');
 drawSquarePinholeInterencePattern('rotated-square', Math.PI/4);
 drawTextAndScale('upside-down-text');
+drawRotatingSquares('rotating-squares');
