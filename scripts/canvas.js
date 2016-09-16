@@ -591,6 +591,31 @@ function drawOlympicRings(id) {
   ctx.stroke();
 }
 
+function drawOlympicSquares(id) {
+  var ctx = document.getElementById(id).getContext('2d');
+  ctx.translate(-30,10);
+  ctx.lineWidth = 5;
+  ctx.beginPath();
+  ctx.strokeStyle = 'blue';
+  ctx.strokeRect(75,50,40,40);
+
+  ctx.beginPath();
+  ctx.strokeStyle = 'yellow';
+  ctx.strokeRect(120,100,40,40);
+
+  ctx.beginPath();
+  ctx.strokeStyle = 'black';
+  ctx.strokeRect(165,50,40,40);
+
+  ctx.beginPath();
+  ctx.strokeStyle = 'green';
+  ctx.strokeRect(210,100,40,40);
+
+  ctx.beginPath();
+  ctx.strokeStyle = 'red';
+  ctx.strokeRect(255,50,40,40);
+}
+
 drawOverlapRect('canvas-example');
 drawPictureFrame('picture-frame');
 drawTriangle('triangle-example');
@@ -621,3 +646,4 @@ drawSquarePinholeInterencePattern('rotated-square', Math.PI/4);
 drawTextAndScale('upside-down-text');
 drawRotatingSquares('rotating-squares');
 drawOlympicRings('olympic-rings');
+drawOlympicSquares('olympic-squares');
