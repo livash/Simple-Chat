@@ -616,6 +616,29 @@ function drawOlympicSquares(id) {
   ctx.strokeRect(255,50,40,40);
 }
 
+function drawBasicShapes(id) {
+  var ctx = document.getElementById(id).getContext('2d');
+  ctx.lineWidth = 5;
+  ctx.scale(1.5, 1.5);
+
+  ctx.strokeStyle = 'yellow';
+  ctx.beginPath();
+  ctx.moveTo(50, 25);
+  ctx.lineTo(100, 25);
+  ctx.lineTo(75, 75);
+  ctx.lineTo(50, 25);
+  ctx.lineTo(100, 25);
+  ctx.stroke();
+
+  ctx.strokeStyle = 'blue';
+  ctx.strokeRect(50, 50, 50, 50);
+
+  ctx.strokeStyle = 'green';
+  ctx.beginPath();
+  ctx.arc(100, 50, 20, 0, Math.PI * 2, true);
+  ctx.stroke();
+}
+
 drawOverlapRect('canvas-example');
 drawPictureFrame('picture-frame');
 drawTriangle('triangle-example');
@@ -647,3 +670,4 @@ drawTextAndScale('upside-down-text');
 drawRotatingSquares('rotating-squares');
 drawOlympicRings('olympic-rings');
 drawOlympicSquares('olympic-squares');
+drawBasicShapes('basic-shapes');
