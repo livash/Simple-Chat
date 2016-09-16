@@ -639,6 +639,20 @@ function drawBasicShapes(id) {
   ctx.stroke();
 }
 
+function drawArch(id) {
+  var ctx = document.getElementById(id).getContext('2d');
+
+  ctx.beginPath();
+  ctx.arc(150,125,100, Math.PI, 0, false);
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.arc(175,125,50, Math.PI, 0, false);
+  ctx.fillStyle = 'white';
+  ctx.fill();
+
+}
+
 drawOverlapRect('canvas-example');
 drawPictureFrame('picture-frame');
 drawTriangle('triangle-example');
@@ -671,3 +685,4 @@ drawRotatingSquares('rotating-squares');
 drawOlympicRings('olympic-rings');
 drawOlympicSquares('olympic-squares');
 drawBasicShapes('basic-shapes');
+drawArch('an-arch');
