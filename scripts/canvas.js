@@ -561,6 +561,36 @@ function drawRotatingSquares(id) {
   ctx.strokeRect(10,10,50,50);
 }
 
+function drawOlympicRings(id) {
+  var ctx = document.getElementById(id).getContext('2d');
+  ctx.translate(-15,25);
+  ctx.lineWidth = 5;
+  ctx.beginPath();
+  ctx.arc(75,50,40, 0, Math.PI * 2, true);
+  ctx.strokeStyle = 'blue';
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.strokeStyle = 'yellow';
+  ctx.arc(120, 100, 40, 0, Math.PI * 2, true);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.strokeStyle = 'black';
+  ctx.arc(165, 50, 40, 0, Math.PI * 2, true);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.strokeStyle = 'green';
+  ctx.arc(210, 100, 40, 0, Math.PI * 2, true);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.strokeStyle = 'red';
+  ctx.arc(255, 50, 40, 0, Math.PI * 2, true);
+  ctx.stroke();
+}
+
 drawOverlapRect('canvas-example');
 drawPictureFrame('picture-frame');
 drawTriangle('triangle-example');
@@ -590,3 +620,4 @@ drawMyName('my-name');
 drawSquarePinholeInterencePattern('rotated-square', Math.PI/4);
 drawTextAndScale('upside-down-text');
 drawRotatingSquares('rotating-squares');
+drawOlympicRings('olympic-rings');
