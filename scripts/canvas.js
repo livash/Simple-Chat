@@ -659,7 +659,7 @@ function drawSnowflake(id) {
   var sin = Math.sin(Math.PI/6),
       cos = Math.cos(Math.PI/6),
       c;
-  ctx.translate(100, 100);
+  ctx.translate(150, 100);
   for (var i=1; i <= 12; i++) {
     c = Math.floor(255 / 12 * i);
     ctx.fillStyle = "rgb(" + c + "," + (c*2) + "," + c + ")";
